@@ -1,5 +1,5 @@
 from tests import *
-import types
+from meta import Widget
 
 
 class TestMethods(unittest.TestCase):
@@ -9,8 +9,5 @@ class TestMethods(unittest.TestCase):
 		with self.assertRaises(AttributeError):
 			widget.new_method()
 
-		def implode(self):
-			return 'set to implode!'
-		widget.implode = types.MethodType(implode, widget)
-
+		widget.add_implode()
 		assert widget.implode() == 'set to implode!'
