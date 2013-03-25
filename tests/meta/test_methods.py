@@ -21,3 +21,9 @@ class TestMethods(unittest.TestCase):
 
 		Widget().add_spin()
 		assert Widget().spin() == 'class is spinning!'
+
+	def test_has_method(self):
+		assert self.widget.has_method('implode') == False
+		assert self.widget.has_method('name') == False
+		self.widget.add_implode()
+		assert self.widget.has_method('implode') == True
