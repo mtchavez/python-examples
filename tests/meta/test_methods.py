@@ -33,3 +33,4 @@ class TestMethods(unittest.TestCase):
 		assert self.widget.responds_to('name') == True
 		self.widget.add_implode()
 		assert self.widget.responds_to('implode') == True
+		assert self.widget.responds_to('__dict__') == True

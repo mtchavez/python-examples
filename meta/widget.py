@@ -23,5 +23,5 @@ class Widget(object):
 		return inspect.ismethod(attrs.get(name, None))
 
 	def responds_to(self, name):
-		attrs = self.__dict__
-		return True if attrs.get(name, None) else False
+		attrs = set( dir(self) )
+		return name in attrs
