@@ -27,3 +27,9 @@ class TestMethods(unittest.TestCase):
 		assert self.widget.has_method('name') == False
 		self.widget.add_implode()
 		assert self.widget.has_method('implode') == True
+
+	def test_responds_to(self):
+		assert self.widget.responds_to('implode') == False
+		assert self.widget.responds_to('name') == True
+		self.widget.add_implode()
+		assert self.widget.responds_to('implode') == True

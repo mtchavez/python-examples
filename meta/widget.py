@@ -19,8 +19,9 @@ class Widget(object):
 		self.implode = types.MethodType(implode, self)
 
 	def has_method(self, name):
-		try:
-			attr = self.__dict__[name]
-			return inspect.ismethod(attr)
-		except:
-			return False
+		attrs = self.__dict__
+		return inspect.ismethod(attrs.get(name, None))
+
+	def responds_to(self, name):
+		attrs = self.__dict__
+		return True if attrs.get(name, None) else False
