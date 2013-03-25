@@ -10,3 +10,9 @@ class Widget(object):
 		def implode(self):
 			return 'set to implode!'
 		self.implode = types.MethodType(implode, self)
+
+	@classmethod
+	def add_spin(cls):
+		def spin(cls):
+			return 'class is spinning!'
+		cls.spin = spin
