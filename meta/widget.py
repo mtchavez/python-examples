@@ -1,7 +1,7 @@
 import types
-import inspect
+import lib
 
-class Widget(object):
+class Widget(lib.ExtendedObject):
 
 	def __init__(self):
 		self.name = 'widget'
@@ -17,11 +17,3 @@ class Widget(object):
 		def implode(self):
 			return 'set to implode!'
 		self.implode = types.MethodType(implode, self)
-
-	def has_method(self, name):
-		attrs = self.__dict__
-		return inspect.ismethod(attrs.get(name, None))
-
-	def responds_to(self, name):
-		attrs = set( dir(self) )
-		return name in attrs
